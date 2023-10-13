@@ -34,4 +34,4 @@ jobs:
           git config --global user.email "$email"
           cname='crawlcomply.com'
           ng build --configuration production --base-href 'https://'"$cname"
-          npx angular-cli-ghpages --dir='dist/crawlcomply' --cname="$cname" --repo='https://'"$GITHUB_TOKEN"'@github.com/crawlcomply/crawlcomply-com.github.io' --branch='master' --message="$MSG" --name="$name" --email="$email" --no-silent
+          npx angular-cli-ghpages --dir='dist/crawlcomply' --cname="$cname" --repo='https://'"$GITHUB_TOKEN"'@github.com/crawlcomply/crawlcomply.github.io' --branch='master' --message="$MSG" --name="$name" --email="$email" --no-silent
