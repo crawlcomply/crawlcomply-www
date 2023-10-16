@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { MatDialog } from "@angular/material/dialog";
-import { SlidesComponent } from "../slides/slides.component";
+import { VideoComponent } from "../video/video.component";
 
 @Component({
   selector: 'app-learn-more',
@@ -12,11 +12,12 @@ import { SlidesComponent } from "../slides/slides.component";
 export class LearnMoreComponent {
   constructor(public dialog: MatDialog) {}
   openSlides() {
-    this.dialog.open(SlidesComponent, {
+    this.dialog.open(VideoComponent, {
       width: "1000px",
       height: "600px",
       enterAnimationDuration: '1500ms',
-      exitAnimationDuration:'0ms'
+      exitAnimationDuration:'0ms',
+      panelClass: 'custom-dialog-container'
     });
   }
 }

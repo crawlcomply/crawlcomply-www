@@ -3,11 +3,11 @@ import { CommonModule } from '@angular/common';
 
 import { MatDialogModule } from "@angular/material/dialog";
 
-import { SlidesComponent } from "./slides.component";
+import { VideoComponent } from "./video.component";
 
 
 @NgModule({
-  declarations: [SlidesComponent],
+  declarations: [VideoComponent],
     imports: [CommonModule, MatDialogModule]
 })
-export class SlidesModule { }
+export class VideoModule { }

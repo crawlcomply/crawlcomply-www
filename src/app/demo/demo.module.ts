@@ -9,17 +9,17 @@ import { MatButtonModule } from "@angular/material/button";
 import { MatInputModule } from "@angular/material/input";
 import { MatIconModule } from "@angular/material/icon";
 
-import { LearnMoreComponent } from "../learn-more/learn-more.component";
-import { docRoutes } from "./doc.routes";
+import { DemoComponent } from './demo.component';
+import { demoRoutes } from "./demo.routes";
 
 @NgModule({
   declarations: [
-    LearnMoreComponent
+    DemoComponent
   ],
   imports: [
-    CommonModule, RouterModule, RouterModule.forChild(docRoutes),
+    CommonModule, RouterModule, RouterModule.forChild(demoRoutes),
     MatSidenavModule, MatDialogModule, MatButtonModule, MatInputModule, MatIconModule,
     FormsModule
   ]
 })
-export class DocModule { }
+export class DemoModule { }

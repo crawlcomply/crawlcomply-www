@@ -1,0 +1,39 @@
+<div class="doc-navbar"></div>
+
+<section class="sidenav-content">
+  <h1 class="no-toc">Live demo</h1>
+
+  <span class="example-button-row">
+    <button mat-icon-button aria-label="Browser back">
+      <mat-icon>arrow_left</mat-icon>
+    </button>
+    <button mat-icon-button color="primary" aria-label="Browser forward">
+      <mat-icon>arrow_right</mat-icon>
+    </button>
+    <mat-form-field appearance="outline">
+      <mat-label>URL</mat-label>
+      <input matInput #url>
+    </mat-form-field>
+    <button mat-icon-button color="accent" aria-label="Load and create report"
+    (click)="runDemoWithUrl(url.value)">
+      <mat-icon>receipt_long</mat-icon>
+    </button>
+  </span>
+
+
+
+  <section *ngIf="displayIframe">
+    <iframe
+      id="inlineFrameExample"
+      title="Inline Frame Example"
+      width="100%"
+      height="200"
+      [src]="iframeUrl">
+    </iframe>
+    <h2>{{"Report for " + url.value.slice(url.value.indexOf("/")+2)}}</h2>
+    <ul>
+      <li>No logos found</li>
+      <li>No text found found</li>
+    </ul>
+  </section>
+</section>

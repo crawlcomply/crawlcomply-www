@@ -3,7 +3,7 @@ import { MatDialog } from "@angular/material/dialog";
 import { MatSidenav } from "@angular/material/sidenav";
 import { Router } from "@angular/router";
 
-import { SlidesComponent } from "../../slides/slides.component";
+import { VideoComponent } from "../../video/video.component";
 
 @Component({
   selector: 'aio-top-menu',
@@ -17,11 +17,12 @@ export class TopMenuComponent {
   constructor(private router: Router,
               public dialog: MatDialog) {}
   openSlides() {
-    this.dialog.open(SlidesComponent, {
+    this.dialog.open(VideoComponent, {
       width: "1000px",
       height: "600px",
       enterAnimationDuration: '1500ms',
-      exitAnimationDuration:'0ms'
+      exitAnimationDuration:'0ms',
+      panelClass: 'custom-dialog-container'
     });
   }
 

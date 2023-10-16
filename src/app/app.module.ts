@@ -21,7 +21,7 @@ import { ScrollSpyService } from "./shared/scroll-spy.service";
 import { STORAGE_PROVIDERS } from "./shared/storage.service";
 import { windowProvider, WindowToken } from "./shared/window";
 import { svg } from "./shared/security";
-import { SlidesModule } from "./slides/slides.module";
+import { VideoModule } from "./video/video.module";
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
@@ -141,7 +141,7 @@ export const svgIconProviders = [
     MatToolbarModule,
 
     AppRoutingModule,
-    SlidesModule
+    VideoModule
   ],
   providers: [
     // Deployment,
