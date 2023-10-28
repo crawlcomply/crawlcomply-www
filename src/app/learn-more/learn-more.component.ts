@@ -13,8 +13,8 @@ export class LearnMoreComponent {
   constructor(public dialog: MatDialog) {}
   openSlides() {
     this.dialog.open(VideoComponent, {
-      width: "1000px",
-      height: "600px",
+      width: "229px",
+      height: "451px",
       enterAnimationDuration: '1500ms',
       exitAnimationDuration:'0ms',
       panelClass: 'custom-dialog-container'
