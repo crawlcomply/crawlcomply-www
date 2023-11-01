@@ -11,10 +11,11 @@ import { MatIconModule } from "@angular/material/icon";
 
 import { LearnMoreComponent } from "../learn-more/learn-more.component";
 import { docRoutes } from "./doc.routes";
+import {TeamComponent} from "../team/team.component";
 
 @NgModule({
   declarations: [
-    LearnMoreComponent
+    LearnMoreComponent, TeamComponent
   ],
   imports: [
     CommonModule, RouterModule, RouterModule.forChild(docRoutes),
