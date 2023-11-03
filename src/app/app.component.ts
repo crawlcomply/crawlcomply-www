@@ -52,7 +52,7 @@ export class AppComponent implements OnInit {
       // items in the top-bar, ensure the sidenav is closed.
       // (This condition can only be met when the resize event changes the value of `showTopMenu`
       //  from `false` to `true` while on a non-sidenav doc.)
-      this.sidenav.toggle(false);
+      this.sidenav.toggle(false).catch(console.error);
     }
   }
 

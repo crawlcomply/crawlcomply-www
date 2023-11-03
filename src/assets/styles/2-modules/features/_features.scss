@@ -17,7 +17,7 @@
   .feature-title {
     @include mixins.font-size(16);
     font-weight: 500;
-    margin: 8px 0px;
+    margin: 8px 0;
     clear: both;
   }
 

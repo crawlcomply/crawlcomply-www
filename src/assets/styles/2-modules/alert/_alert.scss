@@ -2,7 +2,7 @@
 
 .alert {
     padding: 16px;
-    margin: 24px 0px;
+    margin: 24px 0;
     @include mixins.font-size(14);
     width: 100%;
     box-sizing: border-box;

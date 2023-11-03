@@ -1,5 +1,28 @@
 <div class="doc-navbar"></div>
 
+<mat-toolbar>
+  <span>Backend free demonstration</span>
+  <span class="example-spacer"></span>
+</mat-toolbar>
+
+<section class="row">
+  <div class="flex33">
+    <h2>Asset registry</h2>
+    <app-asset-registry></app-asset-registry>
+    <app-asset-create></app-asset-create>
+  </div>
+  <div class="flex33">
+    <h2>Archive log</h2>
+    <app-archive-log></app-archive-log>
+  </div>
+  <div class="flex33">
+    <h2>Compliance check</h2>
+    <app-archive-log></app-archive-log>
+  </div>
+</section>
+
+<hr style="margin: 1%; width: 100%">
+
 <section class="sidenav-content">
   <h1 class="no-toc">Live demo</h1>
 
@@ -11,7 +34,7 @@
       <mat-icon>arrow_right</mat-icon>
     </button>
     <mat-form-field appearance="outline">
-      <mat-label>URL</mat-label>
+      <mat-label>URL (e.g., https://footlocker.com)</mat-label>
       <input matInput #url>
     </mat-form-field>
     <button mat-icon-button color="accent" aria-label="Load and create report"
@@ -19,8 +42,6 @@
       <mat-icon>receipt_long</mat-icon>
     </button>
   </span>
-
-
 
   <section *ngIf="displayIframe">
     <iframe

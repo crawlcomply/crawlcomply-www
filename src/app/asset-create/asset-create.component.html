@@ -1,0 +1,41 @@
+<ng-container [ngSwitch]="showAddNewAsset">
+  <a mat-fab style="margin-top: 20px"
+     (click)="showAddNewAsset = !showAddNewAsset"
+     *ngSwitchCase="true">
+    <mat-icon>close</mat-icon>
+  </a>
+  <a mat-fab extended style="margin: 20px"
+     (click)="showAddNewAsset = !showAddNewAsset"
+     *ngSwitchCase="false">
+    <mat-icon>add</mat-icon>
+    Create new asset collection
+  </a>
+</ng-container>
+
+<div class="outline" *ngIf="showAddNewAsset">
+  <mat-form-field class="row" style="margin-top: 20px;">
+    <mat-label>Name of asset collection, e.g., "Klarna"</mat-label>
+    <input matInput style="width: 100%" />
+  </mat-form-field>
+  <mat-form-field class="row">
+    <mat-label>Word/phrases to seek out (one per line)</mat-label>
+    <textarea matInput style="width: 100%" rows="10"></textarea>
+  </mat-form-field>
+
+  <div class="Neon Neon-theme-dragdropbox">
+    <input
+      style="z-index: 999; opacity: 0; width: 320px; height: 200px; position: absolute; right: 0px; left: 0px; margin-right: auto; margin-left: auto;"
+      name="files[]" id="filer_input2" multiple="multiple" type="file">
+    <div class="Neon-input-dragDrop">
+      <div class="Neon-input-inner">
+        <div class="Neon-input-icon"><i class="fa fa-file-image-o"></i></div>
+        <div class="Neon-input-text"><h3>Drag&amp;Drop images here</h3> <span
+          style="display:inline-block; margin: 15px 0">or</span></div>
+        <a class="Neon-input-choose-btn blue">Browse Files</a></div>
+    </div>
+  </div>
+
+  <button mat-raised-button class="row" style="background: royalblue; color: white">
+    Add new asset(s)
+  </button>
+</div>

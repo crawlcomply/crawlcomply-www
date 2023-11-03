@@ -1,6 +1,5 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 import {DomSanitizer, SafeUrl} from "@angular/platform-browser";
-import {MatInput} from "@angular/material/input";
 
 @Component({
   selector: 'app-demo',
@@ -13,10 +12,14 @@ import {MatInput} from "@angular/material/input";
 export class DemoComponent {
   displayIframe: boolean = false;
   iframeUrl: SafeUrl | undefined;
-  constructor(private sanitizer: DomSanitizer) {}
+
+  constructor(private sanitizer: DomSanitizer) {
+  }
 
   runDemoWithUrl(url: string) {
     this.iframeUrl = this.sanitizer.bypassSecurityTrustResourceUrl(url);
     this.displayIframe = true;
   }
+
 }
+

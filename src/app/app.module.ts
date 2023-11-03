@@ -24,6 +24,8 @@ import { svg } from "./shared/security";
 import { VideoModule } from "./video/video.module";
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import {ArchiveLogModule} from "./archive-log/archive-log.module";
+import {AssetRegistryModule} from "./asset-registry/asset-registry.module";
 
 // These are the hardcoded inline svg sources to be used by the `<mat-icon>` component.
 /* eslint-disable max-len */
@@ -141,6 +143,8 @@ export const svgIconProviders = [
     MatToolbarModule,
 
     AppRoutingModule,
+    ArchiveLogModule,
+    AssetRegistryModule,
     VideoModule
   ],
   providers: [
