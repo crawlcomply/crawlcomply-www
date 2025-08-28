@@ -5,8 +5,9 @@
   height: 100%;
 }
 
-.logo-title {
-  text-decoration:none
+a.logo-title, a:hover.logo-title, a:active.logo-title, a:visited.logo-title {
+  text-decoration: none;
+  color: white;
 }
 
 .sidenav-container {
@@ -45,7 +46,7 @@
 
 section {
   padding: 64px 0;
-  border-bottom: 1px solid rgba(0,0,0,0.05);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
 
   &:last-of-type {
     border-bottom: none;
@@ -144,7 +145,9 @@ section {
   margin: 0 -16px; // Extend to screen edges
   padding: 64px 16px;
 
-  h2 { margin-bottom: 16px; }
+  h2 {
+    margin-bottom: 16px;
+  }
 
   p {
     font-size: 1.2rem;
@@ -156,16 +159,30 @@ section {
 // Footer
 .footer mat-toolbar {
   padding: 16px 0;
-  background: transparent;
+  // background: transparent;
   // color: mat.get-color-from-palette(mat.$grey-palette, 600);
 }
 
 // Button with GitHub Icon
 .github-btn {
-  .btn-content-wrapper { display: flex; align-items: center; justify-content: center; }
-  .github-logo { width: 20px; height: 20px; margin-right: 8px; }
+  .btn-content-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .github-logo {
+    width: 20px;
+    height: 20px;
+    margin-right: 8px;
+  }
 }
-.hero-cta { padding: 12px 32px; font-size: 1rem; line-height: 1.5; }
+
+.hero-cta {
+  padding: 12px 32px;
+  font-size: 1rem;
+  line-height: 1.5;
+}
 
 // Responsive adjustments for tablet and up
 @media (min-width: 768px) {
@@ -174,10 +191,35 @@ section {
     text-align: left;
     justify-content: space-between;
     gap: 32px;
-    h1 { font-size: 3.5rem; }
-    .hero-content { max-width: 50%; }
-    .hero-image { display: block; max-width: 45%; img { max-width: 100%; height: auto; } }
+
+    h1 {
+      font-size: 3.5rem;
+    }
+
+    .hero-content {
+      max-width: 50%;
+    }
+
+    .hero-image {
+      display: block;
+      max-width: 45%;
+
+      img {
+        max-width: 100%;
+        height: auto;
+      }
+    }
   }
-  .features-grid { grid-template-columns: repeat(3, 1fr); }
-  .steps-container { flex-direction: row; justify-content: space-around; align-items: flex-start; .step { max-width: 30%; } }
+  .features-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .steps-container {
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: flex-start;
+
+    .step {
+      max-width: 30%;
+    }
+  }
 }

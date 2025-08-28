@@ -20,7 +20,7 @@
           <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
         </button>
       }
-      <a class="logo-title" href="/"><span class="logo">CrawlComply</span></a>
+      <a class="logo-title" routerLink="/"><span class="logo">CrawlComply</span></a>
       <span class="spacer"></span>
       @if (isHandset$ | async) {
         <div>
@@ -32,7 +32,7 @@
       }
       <a mat-raised-button color="accent" class="github-btn">
         <span class="btn-content-wrapper">
-          <img src="/assets/github-mark.svg" alt="GitHub Logo" class="github-logo">
+          <img ngSrc="/assets/github-mark.svg" alt="GitHub Logo" class="github-logo" height="96" width="98">
           <span>Sign In with GitHub</span>
         </span>
       </a>
@@ -110,12 +110,12 @@
     <!-- Footer -->
     <footer class="footer">
       <mat-divider></mat-divider>
-      <mat-toolbar>
+      <mat-toolbar color="primary">
         <span class="logo-footer">CrawlComply &copy; 2025</span>
         <span class="spacer"></span>
         <div class="footer-links">
-          <a mat-button href="#">Terms</a>
-          <a mat-button href="#">Privacy</a>
+          <a mat-button routerLink="/terms">Terms</a>
+          <a mat-button routerLink="/privacy">Privacy</a>
         </div>
       </mat-toolbar>
     </footer>

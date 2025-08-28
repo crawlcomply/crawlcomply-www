@@ -1,8 +1,8 @@
 import { Component, inject } from '@angular/core';
-import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { AsyncPipe, NgOptimizedImage } from '@angular/common';
 
-// Angular Material Modules
+import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
+
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
 import { MatSidenavModule } from '@angular/material/sidenav';
@@ -13,6 +13,7 @@ import { MatDividerModule } from '@angular/material/divider';
 
 import { Observable } from 'rxjs';
 import { map, shareReplay } from 'rxjs/operators';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-landing-page',
@@ -28,6 +29,8 @@ import { map, shareReplay } from 'rxjs/operators';
     MatIconModule,
     MatCardModule,
     MatDividerModule,
+    NgOptimizedImage,
+    RouterLink,
   ],
 })
 export class LandingPageComponent {
@@ -58,8 +61,14 @@ export class LandingPageComponent {
   ];
 
   steps = [
-    { icon: 'install_desktop', title: '1. Install GitHub App', description: 'Authorize CrawlComply with just a few clicks from the GitHub Marketplace.' },
-    { icon: 'settings', title: '2. Configure', description: 'Quality gates will be inferred from your repo. To steer, add a simple `.crawlcomply.yml` file to your repository.' },
-    { icon: 'check_circle', title: '3. Get Insights', description: 'Receive instant feedback on every pull request and watch your code quality improve.' },
+    { icon: 'install_desktop',
+      title: '0. Install GitHub App',
+      description: 'Authorize CrawlComply with just a few clicks from the GitHub Marketplace.' },
+    { icon: 'settings',
+      title: '1. Configure',
+      description: 'Quality gates will be inferred from your repo. To steer, add a simple `.crawlcomply.yml` file to your repository.' },
+    { icon: 'check_circle',
+      title: '2. Get Insights',
+      description: 'Receive instant feedback on every pull request and watch your code quality improve.' },
   ];
 }
