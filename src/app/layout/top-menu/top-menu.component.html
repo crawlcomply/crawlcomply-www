@@ -1,10 +1,12 @@
 <nav aria-label="primary">
   <ul>
-    <li *ngIf="isWide">
-      <a class="nav-link" title="team" routerLink="/" routerLinkActive="selected" (click)="goAndCloseParent('/')">
-        <span class="nav-link-inner">Home</span>
-      </a>
-    </li>
+    @if (isWide) {
+      <li>
+        <a class="nav-link" title="team" routerLink="/" routerLinkActive="selected" (click)="goAndCloseParent('/')">
+          <span class="nav-link-inner">Home</span>
+        </a>
+      </li>
+    }
     <li>
       <a class="nav-link" title="slides" (click)="openSlides()">
         <span class="nav-link-inner">YC video</span>

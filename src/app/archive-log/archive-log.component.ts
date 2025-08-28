@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-archive-log',
-  templateUrl: './archive-log.component.html',
-  styleUrls: ['./archive-log.component.scss']
+    selector: 'app-archive-log',
+    templateUrl: './archive-log.component.html',
+    styleUrls: ['./archive-log.component.scss'],
+    standalone: false
 })
 export class ArchiveLogComponent {
   displayedColumns: string[] = ['status', 'domain', 'date'];

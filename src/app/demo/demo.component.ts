@@ -2,12 +2,13 @@ import {Component} from '@angular/core';
 import {DomSanitizer, SafeUrl} from "@angular/platform-browser";
 
 @Component({
-  selector: 'app-demo',
-  templateUrl: './demo.component.html',
-  styleUrls: [
-    '../doc/doc.scss',
-    "demo.component.scss"
-  ]
+    selector: 'app-demo',
+    templateUrl: './demo.component.html',
+    styleUrls: [
+        '../doc/doc.scss',
+        "demo.component.scss"
+    ],
+    standalone: false
 })
 export class DemoComponent {
   displayIframe: boolean = false;

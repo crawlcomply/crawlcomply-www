@@ -4,23 +4,33 @@
 
 <header [ngStyle]="{'background-color': isHome? 'blue': 'red'}">
   <mat-toolbar #appToolbar class="app-toolbar no-print mat-toolbar mat-primary" color="primary"
-               [class.transitioning]="false">
+    [class.transitioning]="false">
     <mat-toolbar-row class="mat-toolbar-row">
       <button mat-button class="hamburger" title="Docs menu" (click)="sidenav.toggle()">
         <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="menu" class="hamburger-menu-icon"></mat-icon>
       </button>
-      <a class="nav-link home" routerLink="/" [ngSwitch]="showTopMenu">
-        <img *ngSwitchCase="true" src="assets/images/logos/open/logo-white.svg"
-             style="max-width: 50px; height: auto" title="Home" alt="Home">
-        <span style="text-transform: none;" *ngSwitchCase="true">crawlComply.com</span>
-        <img *ngSwitchDefault src="assets/images/logos/open/logo-white.svg"
-             style="max-width: 20px; height: auto" title="Home" alt="Home">
+      <a class="nav-link home" routerLink="/">
+        @switch (showTopMenu) {
+          @case (true) {
+            <img src="assets/images/logos/open/logo-white.svg"
+              style="max-width: 50px; height: auto" title="Home" alt="Home">
+          }
+          @case (true) {
+            <span style="text-transform: none;">crawlComply.com</span>
+          }
+          @default {
+            <img src="assets/images/logos/open/logo-white.svg"
+              style="max-width: 20px; height: auto" title="Home" alt="Home">
+          }
+        }
       </a>
-      <aio-top-menu *ngIf="showTopMenu" [isWide]="false"></aio-top-menu>
+      @if (showTopMenu) {
+        <aio-top-menu [isWide]="false"></aio-top-menu>
+      }
       <aio-theme-toggle class="right-align" #themeToggle></aio-theme-toggle>
       <div #externalIcons class="toolbar-external-icons-container">
         <a mat-icon-button href="https://github.com/crawlcomply"
-           title="GitHub" aria-label="gotchaquestions on GitHub">
+          title="GitHub" aria-label="gotchaquestions on GitHub">
           <mat-icon svgIcon="logos:github"></mat-icon>
         </a>
       </div>
@@ -30,7 +40,7 @@
 
 <mat-sidenav-container class="sidenav-container">
   <mat-sidenav [class.collapsed]="!dockSideNav" #sidenav class="sidenav"
-               [mode]="mode" [opened]="isOpened" (openedChange)="updateHostClasses()">
+    [mode]="mode" [opened]="isOpened" (openedChange)="updateHostClasses()">
     <aio-top-menu [isWide]="true" [parent]="this.sidenav"></aio-top-menu>
   </mat-sidenav>
 
