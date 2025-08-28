@@ -1,0 +1,183 @@
+@use '@angular/material' as mat;
+
+:host {
+  display: block;
+  height: 100%;
+}
+
+.logo-title {
+  text-decoration:none
+}
+
+.sidenav-container {
+  height: 100%;
+}
+
+.sidenav {
+  width: 250px;
+  @include mat.elevation(4);
+}
+
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+
+  .logo {
+    font-weight: bold;
+    font-size: 1.5rem;
+  }
+
+  .spacer {
+    flex: 1 1 auto;
+  }
+
+  .github-btn {
+    margin-left: 16px;
+  }
+}
+
+.main-content {
+  padding: 0 16px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+section {
+  padding: 64px 0;
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+
+  &:last-of-type {
+    border-bottom: none;
+  }
+
+  h2 {
+    font-size: 2.5rem;
+    font-weight: 500;
+    text-align: center;
+    margin-bottom: 48px;
+  }
+}
+
+// Hero Section
+.hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  min-height: calc(90vh - 64px); // Full viewport height minus header
+  padding: 32px 0;
+
+  .hero-content {
+    max-width: 600px;
+
+    h1 {
+      font-size: 3rem;
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 16px;
+    }
+
+    p {
+      font-size: 1.25rem;
+      // color: mat.get-color-from-palette(mat.$grey-palette, 600);
+      margin-bottom: 32px;
+    }
+  }
+
+  .hero-image {
+    display: none; // Hide on mobile first
+  }
+}
+
+// Features Section
+.features-grid {
+  display: grid;
+  gap: 24px;
+  grid-template-columns: 1fr;
+}
+
+.feature-card {
+  .mat-card-avatar {
+    // background-color: mat.get-color-from-palette($crawlcomply-accent, 50);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .mat-icon {
+      // color: mat.get-color-from-palette($crawlcomply-accent, 400);
+    }
+  }
+
+  mat-card-title {
+    font-weight: 500;
+  }
+}
+
+// How It Works Section
+.steps-container {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  text-align: center;
+
+  .step-icon {
+    font-size: 48px;
+    width: 48px;
+    height: 48px;
+    // color: mat.get-color-from-palette($crawlcomply-primary, 500);
+  }
+
+  h3 {
+    font-size: 1.5rem;
+    font-weight: 500;
+    margin: 16px 0 8px;
+  }
+}
+
+// Final CTA Section
+.final-cta {
+  text-align: center;
+  // background-color: mat.get-color-from-palette(mat.$grey-palette, 50);
+  margin: 0 -16px; // Extend to screen edges
+  padding: 64px 16px;
+
+  h2 { margin-bottom: 16px; }
+
+  p {
+    font-size: 1.2rem;
+    margin-bottom: 32px;
+    // color: mat.get-color-from-palette(mat.$grey-palette, 700);
+  }
+}
+
+// Footer
+.footer mat-toolbar {
+  padding: 16px 0;
+  background: transparent;
+  // color: mat.get-color-from-palette(mat.$grey-palette, 600);
+}
+
+// Button with GitHub Icon
+.github-btn {
+  .btn-content-wrapper { display: flex; align-items: center; justify-content: center; }
+  .github-logo { width: 20px; height: 20px; margin-right: 8px; }
+}
+.hero-cta { padding: 12px 32px; font-size: 1rem; line-height: 1.5; }
+
+// Responsive adjustments for tablet and up
+@media (min-width: 768px) {
+  .hero {
+    flex-direction: row;
+    text-align: left;
+    justify-content: space-between;
+    gap: 32px;
+    h1 { font-size: 3.5rem; }
+    .hero-content { max-width: 50%; }
+    .hero-image { display: block; max-width: 45%; img { max-width: 100%; height: auto; } }
+  }
+  .features-grid { grid-template-columns: repeat(3, 1fr); }
+  .steps-container { flex-direction: row; justify-content: space-around; align-items: flex-start; .step { max-width: 30%; } }
+}

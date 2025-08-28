@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "crawlcomply": {
+    "crawlcomply-www": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -17,57 +17,36 @@
         "build": {
           "builder": "@angular/build:application",
           "options": {
-            "outputPath": {
-              "base": "dist/crawlcomply"
-            },
-            "index": "src/index.html",
-            "polyfills": [
-              "zone.js"
-            ],
+            "browser": "src/main.ts",
             "tsConfig": "tsconfig.app.json",
-            "optimization": {
-              "fonts": {
-                "inline": false
-              },
-              "scripts": true,
-              "styles": {
-                "inlineCritical": false,
-                "minify": true
-              }
-            },
             "inlineStyleLanguage": "scss",
             "assets": [
-              "src/favicon.ico",
-              "src/assets"
-            ],
-            "styles": [
-              "src/assets/styles/main.scss",
               {
-                "inject": false,
-                "input": "src/assets/styles/custom-themes/dark-theme.scss",
-                "bundleName": "dark-theme"
-              },
-              {
-                "inject": false,
-                "input": "src/assets/styles/custom-themes/light-theme.scss",
-                "bundleName": "light-theme"
+                "glob": "**/*",
+                "input": "public"
               }
             ],
-            "scripts": [],
-            "browser": "src/main.ts"
+            "styles": [
+              "src/styles.scss"
+            ],
+            "server": "src/main.server.ts",
+            "outputMode": "server",
+            "ssr": {
+              "entry": "src/server.ts"
+            }
           },
           "configurations": {
             "production": {
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "650kb",
-                  "maximumError": "1mb"
+                  "maximumWarning": "500kB",
+                  "maximumError": "1MB"
                 },
                 {
                   "type": "anyComponentStyle",
-                  "maximumWarning": "2kb",
-                  "maximumError": "4kb"
+                  "maximumWarning": "4kB",
+                  "maximumError": "8kB"
                 }
               ],
               "outputHashing": "all"
@@ -75,8 +54,7 @@
             "development": {
               "optimization": false,
               "extractLicenses": false,
-              "sourceMap": true,
-              "namedChunks": true
+              "sourceMap": true
             }
           },
           "defaultConfiguration": "production"
@@ -85,79 +63,34 @@
           "builder": "@angular/build:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "crawlcomply:build:production"
+              "buildTarget": "crawlcomply-www:build:production"
             },
             "development": {
-              "buildTarget": "crawlcomply:build:development"
+              "buildTarget": "crawlcomply-www:build:development"
             }
           },
           "defaultConfiguration": "development"
         },
         "extract-i18n": {
-          "builder": "@angular/build:extract-i18n",
-          "options": {
-            "buildTarget": "crawlcomply:build"
-          }
+          "builder": "@angular/build:extract-i18n"
         },
         "test": {
           "builder": "@angular/build:karma",
           "options": {
-            "polyfills": [
-              "zone.js",
-              "zone.js/testing"
-            ],
             "tsConfig": "tsconfig.spec.json",
             "inlineStyleLanguage": "scss",
             "assets": [
-              "src/favicon.ico",
-              "src/assets"
-            ],
-            "styles": [
-              "src/styles/main.scss",
               {
-                "inject": false,
-                "input": "src/assets/styles/custom-themes/dark-theme.scss",
-                "bundleName": "dark-theme"
-              },
-              {
-                "inject": false,
-                "input": "src/assets/styles/custom-themes/light-theme.scss",
-                "bundleName": "light-theme"
+                "glob": "**/*",
+                "input": "public"
               }
             ],
-            "scripts": []
+            "styles": [
+              "src/styles.scss"
+            ]
           }
         }
       }
-    }
-  },
-  "cli": {
-    "analytics": false
-  },
-  "schematics": {
-    "@schematics/angular:component": {
-      "type": "component"
-    },
-    "@schematics/angular:directive": {
-      "type": "directive"
-    },
-    "@schematics/angular:service": {
-      "type": "service"
-    },
-    "@schematics/angular:guard": {
-      "typeSeparator": "."
-    },
-    "@schematics/angular:interceptor": {
-      "typeSeparator": "."
-    },
-    "@schematics/angular:module": {
-      "typeSeparator": "."
-    },
-    "@schematics/angular:pipe": {
-      "typeSeparator": "."
-    },
-    "@schematics/angular:resolver": {
-      "typeSeparator": "."
     }
   }
 }

@@ -8,10 +8,10 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v5
 
       - name: Use Node.js LTS
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
           node-version: lts/*
 
@@ -19,6 +19,9 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.CUSTOM_GITHUB_TOKEN }}
           GH_TOKEN: ${{ secrets.CUSTOM_GITHUB_TOKEN }}
+          DIST: 'dist/crawlcomply-www'
+          TARGET: 'crawlcomply/crawlcomply.github.io'
+          CNAME: 'crawlcomply.com'
         run: |
           npm i -g npm
           npm i -g @angular/cli typescript angular-cli-ghpages
@@ -30,7 +33,8 @@ jobs:
           git config --global user.name "$author"
           email="${email_author#*<}"; email="${email::-1}"
           git config --global user.email "$email"
-          cname='crawlcomply.com'
-          ng build --configuration production --base-href 'https://'"$cname"
-          cp README.md dist/crawlcomply
-          npx angular-cli-ghpages --dir='dist/crawlcomply' --cname="$cname" --repo='https://'"$GH_TOKEN"'@github.com/crawlcomply/crawlcomply.github.io' --branch='master' --message="$MSG" --name="$name" --email="$email" --no-silent
+          ng build --configuration production --base-href 'https://'"$CNAME"
+          head -n6 README.md > "$DIST"'/README.md'
+          mv "$DIST"'/browser'/* "$DIST"
+          mv cdd-python/site "$DIST"'/cdd-python'
+          npx angular-cli-ghpages --dir="$DIST" --cname="$CNAME" --repo='https://'"$GITHUB_TOKEN"'@github.com/'"$TARGET" --branch='master' --message="$MSG" --name="$name" --email="$email" --no-silent

@@ -1,0 +1,124 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #drawer class="sidenav" fixedInViewport mode="over">
+    <mat-toolbar>Menu</mat-toolbar>
+    <mat-nav-list>
+      <a mat-list-item href="#features" (click)="drawer.close()">Features</a>
+      <a mat-list-item href="#how-it-works" (click)="drawer.close()">How It Works</a>
+      <a mat-list-item href="#pricing" (click)="drawer.close()">Pricing</a>
+      <a mat-list-item href="#" (click)="drawer.close()">Docs</a>
+    </mat-nav-list>
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <mat-toolbar color="primary" class="header">
+      @if (isHandset$ | async) {
+        <button
+          type="button"
+          aria-label="Toggle sidenav"
+          mat-icon-button
+          (click)="drawer.toggle()">
+          <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+        </button>
+      }
+      <a class="logo-title" href="/"><span class="logo">CrawlComply</span></a>
+      <span class="spacer"></span>
+      @if (isHandset$ | async) {
+        <div>
+          <a mat-button href="#features">Features</a>
+          <a mat-button href="#how-it-works">How It Works</a>
+          <a mat-button href="#pricing">Pricing</a>
+          <a mat-button href="#">Docs</a>
+        </div>
+      }
+      <a mat-raised-button color="accent" class="github-btn">
+        <span class="btn-content-wrapper">
+          <img src="/assets/github-mark.svg" alt="GitHub Logo" class="github-logo">
+          <span>Sign In with GitHub</span>
+        </span>
+      </a>
+    </mat-toolbar>
+
+    <main class="main-content">
+      <!-- Hero Section -->
+      <section class="hero">
+        <div class="hero-content">
+          <h1>Keep Your Codebase Clean and Compliant</h1>
+          <p>
+            CrawlComply is a GitHub bot that automates code coverage and linting checks,
+            providing historical insights to elevate your development standards.
+          </p>
+          <a mat-raised-button color="accent" class="hero-cta github-btn">
+            <span class="btn-content-wrapper">
+              <img src="/assets/github-mark.svg" alt="GitHub Logo" class="github-logo">
+              <span>Install for Free</span>
+            </span>
+          </a>
+        </div>
+        <div class="hero-image">
+          <!-- You can place an illustration or product screenshot here -->
+          <img src="/assets/hero-illustration.svg" alt="Code quality illustration">
+        </div>
+      </section>
+
+      <!-- Features Section -->
+      <section id="features" class="features">
+        <h2>Powerful Features, Simple Workflow</h2>
+        <div class="features-grid">
+          @for (feature of features; track feature) {
+            <mat-card class="feature-card">
+              <mat-card-header>
+                <div mat-card-avatar>
+                  <mat-icon>{{ feature.icon }}</mat-icon>
+                </div>
+                <mat-card-title>{{ feature.title }}</mat-card-title>
+              </mat-card-header>
+              <mat-card-content>
+                <p>{{ feature.description }}</p>
+              </mat-card-content>
+            </mat-card>
+          }
+        </div>
+      </section>
+
+      <!-- How It Works Section -->
+      <section id="how-it-works" class="how-it-works">
+        <h2>Get Started in Minutes</h2>
+        <div class="steps-container">
+          @for (step of steps; track step) {
+            <div class="step">
+              <mat-icon class="step-icon">{{ step.icon }}</mat-icon>
+              <h3>{{ step.title }}</h3>
+              <p>{{ step.description }}</p>
+            </div>
+          }
+        </div>
+      </section>
+
+      <!-- Final CTA Section -->
+      <section id="pricing" class="final-cta">
+        <h2>Ready to Elevate Your Code Quality?</h2>
+        <p>Start with our free plan and see the difference.</p>
+        <a mat-raised-button color="accent" class="hero-cta github-btn">
+          <span class="btn-content-wrapper">
+            <img src="/assets/github-mark.svg" alt="GitHub Logo" class="github-logo">
+            <span>Sign Up with GitHub</span>
+          </span>
+        </a>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <mat-divider></mat-divider>
+      <mat-toolbar>
+        <span class="logo-footer">CrawlComply &copy; 2025</span>
+        <span class="spacer"></span>
+        <div class="footer-links">
+          <a mat-button href="#">Terms</a>
+          <a mat-button href="#">Privacy</a>
+        </div>
+      </mat-toolbar>
+    </footer>
+
+  </mat-sidenav-content>
+</mat-sidenav-container>
