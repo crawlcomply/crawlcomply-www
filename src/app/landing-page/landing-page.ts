@@ -17,11 +17,10 @@ import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-landing-page',
-  templateUrl: './landing-page.component.html',
-  styleUrls: ['./landing-page.component.scss'],
+  templateUrl: './landing-page.html',
+  styleUrls: ['./landing-page.scss'],
   standalone: true,
   imports: [
-    AsyncPipe,
     MatToolbarModule,
     MatButtonModule,
     MatSidenavModule,
@@ -29,19 +28,9 @@ import { RouterLink } from '@angular/router';
     MatIconModule,
     MatCardModule,
     MatDividerModule,
-    NgOptimizedImage,
-    RouterLink,
   ],
 })
-export class LandingPageComponent {
-  private breakpointObserver = inject(BreakpointObserver);
-
-  isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
-    .pipe(
-      map(result => result.matches),
-      shareReplay()
-    );
-
+export class LandingPage {
   features = [
     {
       icon: 'assessment',

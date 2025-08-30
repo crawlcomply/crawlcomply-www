@@ -1,0 +1,56 @@
+@use '@angular/material' as mat;
+
+:host {
+  display: block;
+  height: 100%;
+}
+
+a.logo-title, a:hover.logo-title, a:active.logo-title, a:visited.logo-title {
+  text-decoration: none;
+  color: white;
+}
+
+.sidenav-container {
+  height: 100%;
+}
+
+.sidenav {
+  width: 250px;
+  @include mat.elevation(4);
+}
+
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+
+  .logo {
+    font-weight: bold;
+    font-size: 1.5rem;
+  }
+
+  .spacer {
+    flex: 1 1 auto;
+  }
+
+  .github-btn {
+    margin-left: 16px;
+  }
+}
+
+.main-content {
+  padding: 0 16px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+// Footer
+.footer mat-toolbar {
+  padding: 16px 0;
+  // background: transparent;
+  // color: mat.get-color-from-palette(mat.$grey-palette, 600);
+}
+
+.flex {
+  display: flex;
+}
