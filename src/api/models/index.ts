@@ -16,11 +16,11 @@ export interface AuthErrorSchema {
 /** Create Struct for a row in table `org` for [`Org`] */
 export interface CreateOrg {
     /** Field representing column `avatar_url` */
-    avatar_url?: any;
+    avatar_url?: string | null;
     /** Field representing column `description` */
-    description?: any;
+    description?: string | null;
     /** Field representing column `github_id` */
-    github_id?: any;
+    github_id?: string | null;
     /** Field representing column `name` */
     name: string;
     /** Field representing column `owner` */
@@ -32,11 +32,11 @@ export interface CreateProfile {
     /** Field representing column `alias` */
     alias: string;
     /** Field representing column `avatar_url` */
-    avatar_url?: any;
+    avatar_url?: string | null;
     /** Field representing column `description` */
-    description?: any;
+    description?: string | null;
     /** Field representing column `github_id` */
-    github_id?: any;
+    github_id?: string | null;
     /** Field representing column `username` */
     username: string;
 }
@@ -44,39 +44,39 @@ export interface CreateProfile {
 /** Create Struct for a row in table `repo` for [`Repo`] */
 export interface CreateRepo {
     /** Field representing column `comments_url` */
-    comments_url?: any;
+    comments_url?: string | null;
     /** Field representing column `default_branch` */
-    default_branch?: any;
+    default_branch?: string | null;
     /** Field representing column `description` */
-    description?: any;
+    description?: string | null;
     /** Field representing column `fork` */
-    fork?: any;
+    fork?: boolean | null;
     /** Field representing column `full_name` */
-    full_name?: any;
+    full_name?: string | null;
     /** Field representing column `html_url` */
-    html_url?: any;
+    html_url?: string | null;
     /** Field representing column `id` */
     id: number;
     /** Field representing column `is_monorepo` */
-    is_monorepo?: any;
+    is_monorepo?: boolean | null;
     /** Field representing column `languages` */
-    languages?: any;
+    languages?: any[] | null;
     /** Field representing column `last_commit` */
-    last_commit?: any;
+    last_commit?: string | null;
     /** Field representing column `name` */
     name: string;
     /** Field representing column `node_id` */
-    node_id?: any;
+    node_id?: string | null;
     /** Field representing column `org` */
     org: string;
     /** Field representing column `private` */
-    private?: any;
+    private?: boolean | null;
     /** Field representing column `pulls_url` */
-    pulls_url?: any;
+    pulls_url?: string | null;
     /** Field representing column `spdx` */
-    spdx?: any;
+    spdx?: string | null;
     /** Field representing column `visibility` */
-    visibility?: any;
+    visibility?: string | null;
 }
 
 /** Create Struct for a row in table `repo_history` for [`RepoHistory`] */
@@ -87,23 +87,23 @@ export interface CreateRepoHistory {
     /** Field representing column `full_name` */
     full_name: string;
     /** Field representing column `git_branch` */
-    git_branch?: any;
+    git_branch?: string | null;
     /** Field representing column `git_tag` */
-    git_tag?: any;
+    git_tag?: string | null;
     /** Field representing column `github_pr` */
-    github_pr?: any;
+    github_pr?: number | null;
     /** Field representing column `hosted_docs_url` */
-    hosted_docs_url?: any;
+    hosted_docs_url?: string | null;
     /** Field representing column `id` */
-    id?: any;
+    id?: string | null;
     /** Field representing column `metrics` */
     metrics?: any;
     /** Field representing column `notes` */
-    notes?: any;
+    notes?: string | null;
     /** Field representing column `repo_id` */
-    repo_id?: any;
+    repo_id?: number | null;
     /** Field representing column `security_scanner` */
-    security_scanner?: any;
+    security_scanner?: string | null;
     test_coverage?: null | String;
 }
 
@@ -114,9 +114,9 @@ export interface CreateRunHistory {
     /** Field representing column `full_name` */
     full_name: string;
     /** Field representing column `id` */
-    id?: any;
+    id?: string | null;
     /** Field representing column `status` */
-    status?: any;
+    status?: string | null;
 }
 
 export enum GrantType {
@@ -129,13 +129,13 @@ export enum GrantType {
 /** Struct representing a row in table `org` */
 export interface Org {
     /** Field representing column `avatar_url` */
-    avatar_url?: any;
+    avatar_url?: string | null;
     /** Field representing column `created_at` */
     created_at: Date;
     /** Field representing column `description` */
-    description?: any;
+    description?: string | null;
     /** Field representing column `github_id` */
-    github_id?: any;
+    github_id?: string | null;
     /** Field representing column `name` */
     name: string;
     /** Field representing column `owner` */
@@ -151,13 +151,13 @@ export interface Profile {
     /** Field representing column `alias` */
     alias: string;
     /** Field representing column `avatar_url` */
-    avatar_url?: any;
+    avatar_url?: string | null;
     /** Field representing column `created_at` */
     created_at: Date;
     /** Field representing column `description` */
-    description?: any;
+    description?: string | null;
     /** Field representing column `github_id` */
-    github_id?: any;
+    github_id?: string | null;
     /** Field representing column `username` */
     username: string;
 }
@@ -169,43 +169,43 @@ export interface ProfileVecObj {
 /** Struct representing a row in table `repo` */
 export interface Repo {
     /** Field representing column `comments_url` */
-    comments_url?: any;
+    comments_url?: string | null;
     /** Field representing column `created_at` */
     created_at: Date;
     /** Field representing column `default_branch` */
-    default_branch?: any;
+    default_branch?: string | null;
     /** Field representing column `description` */
-    description?: any;
+    description?: string | null;
     /** Field representing column `fork` */
-    fork?: any;
+    fork?: boolean | null;
     /** Field representing column `full_name` */
-    full_name?: any;
+    full_name?: string | null;
     /** Field representing column `html_url` */
-    html_url?: any;
+    html_url?: string | null;
     /** Field representing column `id` */
     id: number;
     /** Field representing column `is_monorepo` */
-    is_monorepo?: any;
+    is_monorepo?: boolean | null;
     /** Field representing column `languages` */
-    languages?: any;
+    languages?: any[] | null;
     /** Field representing column `last_commit` */
-    last_commit?: any;
+    last_commit?: string | null;
     /** Field representing column `name` */
     name: string;
     /** Field representing column `node_id` */
-    node_id?: any;
+    node_id?: string | null;
     /** Field representing column `org` */
     org: string;
     /** Field representing column `private` */
-    private?: any;
+    private?: boolean | null;
     /** Field representing column `pulls_url` */
-    pulls_url?: any;
+    pulls_url?: string | null;
     /** Field representing column `spdx` */
-    spdx?: any;
+    spdx?: string | null;
     /** Field representing column `updated_at` */
     updated_at: Date;
     /** Field representing column `visibility` */
-    visibility?: any;
+    visibility?: string | null;
 }
 
 /** Struct representing a row in table `repo_history` */
@@ -218,23 +218,23 @@ export interface RepoHistory {
     /** Field representing column `full_name` */
     full_name: string;
     /** Field representing column `git_branch` */
-    git_branch?: any;
+    git_branch?: string | null;
     /** Field representing column `git_tag` */
-    git_tag?: any;
+    git_tag?: string | null;
     /** Field representing column `github_pr` */
-    github_pr?: any;
+    github_pr?: number | null;
     /** Field representing column `hosted_docs_url` */
-    hosted_docs_url?: any;
+    hosted_docs_url?: string | null;
     /** Field representing column `id` */
-    id?: any;
+    id?: string | null;
     /** Field representing column `metrics` */
     metrics?: any;
     /** Field representing column `notes` */
-    notes?: any;
+    notes?: string | null;
     /** Field representing column `repo_id` */
-    repo_id?: any;
+    repo_id?: number | null;
     /** Field representing column `security_scanner` */
-    security_scanner?: any;
+    security_scanner?: string | null;
     test_coverage?: null | String;
 }
 
@@ -255,11 +255,11 @@ export interface RunHistory {
     /** Field representing column `full_name` */
     full_name: string;
     /** Field representing column `id` */
-    id?: any;
+    id?: string | null;
     /** Field representing column `run` */
     run: number;
     /** Field representing column `status` */
-    status?: any;
+    status?: string | null;
 }
 
 export interface RunHistoryVecObj {
@@ -287,21 +287,21 @@ export interface Token {
 
 export interface TokenRequest {
     /** optional client ID (required, for example, in RFC6749's non password non refresh grant flow) */
-    client_id?: any;
+    client_id?: string | null;
     /** optional client secret (as used, e.g., in RFC6749's non (password|refresh) grant flow) */
-    client_secret?: any;
+    client_secret?: string | null;
     /** optional code (required, e.g., in datatracker.ietf.org/doc/html/rfc6749#section-4.1.3) */
-    code?: any;
+    code?: string | null;
     /** RFC6749 grant type */
     grant_type: GrantType;
     /** optional password (as used, for example, in RFC6749's password grant flow) */
-    password?: any;
+    password?: string | null;
     /** optional redirect_uri (used, e.g., in datatracker.ietf.org/doc/html/rfc6749#section-4.1.3) */
-    redirect_uri?: any;
+    redirect_uri?: string | null;
     /** optional refresh token (as used, for example, in RFC6749's refresh grant flow) */
-    refresh_token?: any;
+    refresh_token?: string | null;
     /** optional username (as used, for example, in RFC6749's password grant flow) */
-    username?: any;
+    username?: string | null;
 }
 
 /** Version record for this package and its first-party dependencies */

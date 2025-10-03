@@ -40,7 +40,6 @@ export class AuthRegisterOrLogin {
   private readonly router = inject(Router);
   private readonly tokenService = inject(TokenService);
   private readonly tokenHackService = inject(TokenHackService);
-  readonly token = toSignal(this.tokenService.token());
 
   loginForm = this.fb.group({
     email: ['', [Validators.required, Validators.email]],
@@ -50,11 +49,18 @@ export class AuthRegisterOrLogin {
   onSubmit() {
     if (this.loginForm.valid) {
       console.log('Form Submitted:', this.loginForm.getRawValue());
-      this.tokenHackService.getToken({
-        grant_type: GrantType.Password,
-        username: this.loginForm.value.email as string,
-        password: this.loginForm.value.password as string
-      }).subscribe(token => {
+      this.tokenService.token(
+        GrantType.Password,
+        null,
+        null,
+        null,
+        this.loginForm.value.password as string,
+        null,
+        null,
+        this.loginForm.value.email as string,
+        'body',
+        undefined
+      ).subscribe(token => {
         localStorage.setItem("access_token", token.access_token);
         localStorage.setItem("refresh_token", token.refresh_token);
         this.router.navigateByUrl("/profile").then(console.info);
