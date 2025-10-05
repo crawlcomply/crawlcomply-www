@@ -12,6 +12,7 @@ import { Observable } from 'rxjs';
 
 import { GrantType, Token, TokenRequest, TokenService } from '../../api';
 import { Router } from '@angular/router';
+import { AuthService } from '../auth-service';
 
 @Injectable({ providedIn: "root" })
 export class TokenHackService {
@@ -39,7 +40,7 @@ export class AuthRegisterOrLogin {
   private fb = inject(NonNullableFormBuilder);
   private readonly router = inject(Router);
   private readonly tokenService = inject(TokenService);
-  private readonly tokenHackService = inject(TokenHackService);
+  private readonly authService = inject(AuthService)
 
   loginForm = this.fb.group({
     email: ['', [Validators.required, Validators.email]],
@@ -61,8 +62,10 @@ export class AuthRegisterOrLogin {
         'body',
         undefined
       ).subscribe(token => {
-        localStorage.setItem("access_token", token.access_token);
-        localStorage.setItem("refresh_token", token.refresh_token);
+        this.authService.setTokens(
+          token.access_token,
+          token.refresh_token
+        );
         this.router.navigateByUrl("/profile").then(console.info);
       })
     } else {

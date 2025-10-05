@@ -11,6 +11,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Observable } from 'rxjs';
 import { map, shareReplay } from 'rxjs/operators';
+import { AuthService } from '../auth-service';
 
 @Component({
   selector: 'app-layout',
@@ -33,6 +34,7 @@ import { map, shareReplay } from 'rxjs/operators';
 })
 export class Layout {
   private breakpointObserver = inject(BreakpointObserver);
+  readonly authService = inject(AuthService)
 
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
     .pipe(
