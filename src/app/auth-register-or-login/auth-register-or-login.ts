@@ -1,27 +1,14 @@
-import { Component, inject, Injectable } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule, NonNullableFormBuilder, Validators } from '@angular/forms';
-import { toSignal } from '@angular/core/rxjs-interop';
-import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
 
-import { Observable } from 'rxjs';
-
-import { GrantType, Token, TokenRequest, TokenService } from '../../api';
-import { Router } from '@angular/router';
+import { GrantType, TokenService } from '../../api';
 import { AuthService } from '../auth-service';
-
-@Injectable({ providedIn: "root" })
-export class TokenHackService {
-  private readonly httpClient: HttpClient = inject(HttpClient);
-
-  getToken(body: TokenRequest): Observable<Token> {
-    return this.httpClient.post<Token>("/api/token", body);
-  }
-}
 
 @Component({
   selector: 'app-auth-register-or-login',

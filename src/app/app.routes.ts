@@ -22,6 +22,26 @@ export const routes: Routes = [
     canActivate: [() => inject(AuthService).isLoggedIn()]
   },
   {
+    path: 'org',
+    loadComponent: () =>
+      import('./org/org').then(m => m.Org)
+  },
+  {
+    path: 'repo',
+    loadComponent: () =>
+      import('./repo/repo').then(m => m.Repo)
+  },
+  {
+    path: 'repo_history',
+    loadComponent: () =>
+      import('./repo-history/repo-history').then(m => m.RepoHistory)
+  },
+  {
+    path: 'run_history',
+    loadComponent: () =>
+      import('./run-history/run-history').then(m => m.RunHistory)
+  },
+  {
     path: '',
     loadComponent: () =>
       import('./landing-page/landing-page').then(m => m.LandingPage)
