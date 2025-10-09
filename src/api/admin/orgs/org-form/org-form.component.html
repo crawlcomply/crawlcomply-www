@@ -1,0 +1,38 @@
+<div class="container">
+  <h1>{{ isEditMode() ? 'Edit' : 'Create' }} Org</h1>
+  @if (form) {
+    <form [formGroup]="form" (ngSubmit)="onSubmit()" class="form-container">
+      <mat-form-field appearance="outline">
+        <mat-label>Avatar Url</mat-label>
+        <input matInput formControlName="avatar_url" type="text">
+        <mat-hint>Field representing column `avatar_url`</mat-hint>
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Description</mat-label>
+        <input matInput formControlName="description" type="text">
+        <mat-hint>Field representing column `description`</mat-hint>
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Github Id</mat-label>
+        <input matInput formControlName="github_id" type="text">
+        <mat-hint>Field representing column `github_id`</mat-hint>
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Name</mat-label>
+        <input matInput formControlName="name" type="text">
+        <mat-hint>Field representing column `name`</mat-hint>
+        <mat-error *ngIf="form.get('name')?.hasError('required')">This field is required.</mat-error>
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Owner</mat-label>
+        <input matInput formControlName="owner" type="text">
+        <mat-hint>Field representing column `owner`</mat-hint>
+        <mat-error *ngIf="form.get('owner')?.hasError('required')">This field is required.</mat-error>
+      </mat-form-field>
+      <div class="action-buttons">
+        <button mat-stroked-button type="button" (click)="onCancel()">Cancel</button>
+        <button mat-flat-button color="primary" type="submit" [disabled]="form.invalid || form.pristine">Save</button>
+      </div>
+    </form>
+  }
+</div>

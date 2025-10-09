@@ -1,0 +1,99 @@
+<div class="container">
+  <h1>{{ isEditMode() ? 'Edit' : 'Create' }} Repo</h1>
+  @if (form) {
+    <form [formGroup]="form" (ngSubmit)="onSubmit()" class="form-container">
+      <mat-form-field appearance="outline">
+        <mat-label>Comments Url</mat-label>
+        <input matInput formControlName="comments_url" type="text">
+        <mat-hint>Field representing column `comments_url`</mat-hint>
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Default Branch</mat-label>
+        <input matInput formControlName="default_branch" type="text">
+        <mat-hint>Field representing column `default_branch`</mat-hint>
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Description</mat-label>
+        <input matInput formControlName="description" type="text">
+        <mat-hint>Field representing column `description`</mat-hint>
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Fork</mat-label>
+        <input matInput formControlName="fork" type="text">
+        <mat-hint>Field representing column `fork`</mat-hint>
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Full Name</mat-label>
+        <input matInput formControlName="full_name" type="text">
+        <mat-hint>Field representing column `full_name`</mat-hint>
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Html Url</mat-label>
+        <input matInput formControlName="html_url" type="text">
+        <mat-hint>Field representing column `html_url`</mat-hint>
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Id</mat-label>
+        <input matInput formControlName="id" type="number">
+        <mat-hint>Field representing column `id`</mat-hint>
+        <mat-error *ngIf="form.get('id')?.hasError('required')">This field is required.</mat-error>
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Is Monorepo</mat-label>
+        <input matInput formControlName="is_monorepo" type="text">
+        <mat-hint>Field representing column `is_monorepo`</mat-hint>
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Languages</mat-label>
+        <input matInput formControlName="languages" type="text">
+        <mat-hint>Field representing column `languages`</mat-hint>
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Last Commit</mat-label>
+        <input matInput formControlName="last_commit" type="text">
+        <mat-hint>Field representing column `last_commit`</mat-hint>
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Name</mat-label>
+        <input matInput formControlName="name" type="text">
+        <mat-hint>Field representing column `name`</mat-hint>
+        <mat-error *ngIf="form.get('name')?.hasError('required')">This field is required.</mat-error>
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Node Id</mat-label>
+        <input matInput formControlName="node_id" type="text">
+        <mat-hint>Field representing column `node_id`</mat-hint>
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Org</mat-label>
+        <input matInput formControlName="org" type="text">
+        <mat-hint>Field representing column `org`</mat-hint>
+        <mat-error *ngIf="form.get('org')?.hasError('required')">This field is required.</mat-error>
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Private</mat-label>
+        <input matInput formControlName="private" type="text">
+        <mat-hint>Field representing column `private`</mat-hint>
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Pulls Url</mat-label>
+        <input matInput formControlName="pulls_url" type="text">
+        <mat-hint>Field representing column `pulls_url`</mat-hint>
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Spdx</mat-label>
+        <input matInput formControlName="spdx" type="text">
+        <mat-hint>Field representing column `spdx`</mat-hint>
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Visibility</mat-label>
+        <input matInput formControlName="visibility" type="text">
+        <mat-hint>Field representing column `visibility`</mat-hint>
+      </mat-form-field>
+      <div class="action-buttons">
+        <button mat-stroked-button type="button" (click)="onCancel()">Cancel</button>
+        <button mat-flat-button color="primary" type="submit" [disabled]="form.invalid || form.pristine">Save</button>
+      </div>
+    </form>
+  }
+</div>

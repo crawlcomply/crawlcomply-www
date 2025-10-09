@@ -1,0 +1,37 @@
+:host {
+  display: block;
+  padding: 2rem;
+}
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  max-width: 500px;
+}
+
+.action-buttons {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: flex-end;
+  margin-top: 1rem;
+}
+
+mat-checkbox, mat-slide-toggle {
+  margin: 0.5rem 0;
+}
+
+.group-container {
+  display: flex;
+  flex-direction: column;
+  margin: 0.5rem 0;
+}
+
+.group-container label {
+  margin-bottom: 0.5rem;
+}
+
+mat-radio-group {
+  display: flex;
+  gap: 1rem;
+}
