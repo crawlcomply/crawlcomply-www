@@ -2,7 +2,7 @@
 import { Component, computed, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
@@ -20,6 +20,7 @@ import { CreateProfile } from '../../../models';
 })
 export class ProfileFormComponent {
   private readonly router = inject(Router);
+  private readonly route = inject(ActivatedRoute);
   private readonly svc = inject(ProfileService);
 
   readonly form = new FormGroup({
@@ -39,11 +40,14 @@ export class ProfileFormComponent {
     if (this.form.invalid) return;
     const formValue = this.form.getRawValue() as CreateProfile;
     const action$ = this.svc.upsert({ body: formValue } as any);
-    action$.subscribe(() => this.router.navigate(['admin/profiles']));
+    action$.subscribe(() => {
+      const navTarget = this.isEditMode() ? '..' : '.';
+      this.router.navigate([navTarget], { relativeTo: this.route });
+    });
   }
 
   onCancel(): void {
-    this.router.navigate(['admin/profiles']);
+    this.router.navigate(['..'], { relativeTo: this.route });
   }
 
 }

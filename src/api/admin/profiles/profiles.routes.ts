@@ -1,11 +1,7 @@
 /* eslint-disable */
 import { Routes } from '@angular/router';
 
-export const PROFILES_ROUTES: Routes = [{
-  path: '',
-  title: 'Profiles',
-  loadComponent: () => import('./profiles-list/profiles-list.component').then(m => m.ProfileListComponent)
-},
+export const PROFILES_ROUTES: Routes = [{ path: '', redirectTo: 'new', pathMatch: 'full' },
   {
     path: 'new',
     title: 'Create Profile',
